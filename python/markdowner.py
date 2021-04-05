@@ -3,6 +3,7 @@
 import sys
 
 from time import time, sleep
+from links import *
 
 # Composants
 
@@ -100,6 +101,8 @@ def markdownFile(name):
 
             fResult.write(res)
             fResult.close()
+    
+    print("Le fichier %s.inc a bien été compilé." % name)
 
 # Liste > Compilation
 
@@ -114,6 +117,8 @@ def compileList(fileName):
                 markdownFile(sFile)
     
         fList.close()
+    
+    print("La liste %s a bien été compilée." % fileName)
 
 # Compilation
 
@@ -123,15 +128,15 @@ if len(sys.argv) != 2:
 
 mode = sys.argv[1]
 
-if mode == "c":
-    target = "complete.txt"
-else:
-    target = "partial.txt"
+target = buildLinks[mode]
 
 try:
-    while True:
-        compileList(target)
+    if target == "partial.txt":
+        while True:
+            compileList(target)
 
-        sleep(5)
+            sleep(15)
+    else:
+        compileList(target)
 except KeyboardInterrupt:
     print("\nFin du programme")

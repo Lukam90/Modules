@@ -109,6 +109,8 @@ async function fetchChars(code) {
 
         children += "</tr>";
 
+        children = children.replace(/\\\?/g, "?");
+
         tabChars.innerHTML += children;
     }
 }

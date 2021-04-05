@@ -19,7 +19,5 @@ function convertText() {
 		}
 	}
 
-	fText.value = res;
-
-	selectText(fText);
+	result.value = res;
 }

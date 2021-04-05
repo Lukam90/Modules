@@ -14,7 +14,5 @@ function convertText() {
 		if (line.trim() != "")	res += `${line}\n`;
 	}
 
-	fText.value = res;
-
-	selectText(fText);
+	result.value = res;
 }
